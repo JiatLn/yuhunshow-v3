@@ -35,9 +35,22 @@
 
 <script setup lang="ts">
   import AppIcon from '@/components/common/AppIcon.vue';
+  import useHeroEquipStore from '@/store/modules/useHeroEquipStore';
   import useUserStore from '@/store/modules/useUserStore';
+  import { onMounted } from 'vue';
+  import { useRouter } from 'vue-router';
 
   const userStore = useUserStore();
+  const router = useRouter();
+  const heroEquipStore = useHeroEquipStore();
+
+  onMounted(() => {
+    if (!heroEquipStore.hasData()) {
+      router.push({
+        name: 'Upload',
+      });
+    }
+  });
 </script>
 
 <style lang="scss" scoped>

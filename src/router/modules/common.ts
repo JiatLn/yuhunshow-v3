@@ -9,6 +9,14 @@ const routes: RouteRecordRaw[] = [
       title: '首页',
     },
   },
+  {
+    path: '/upload',
+    name: 'Upload',
+    component: () => import('@/pages/Upload.vue'),
+    meta: {
+      title: '上传',
+    },
+  },
 ];
 
 export default routes;
