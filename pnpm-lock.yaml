@@ -258,7 +258,7 @@ packages:
     name: constantinople
     version: 4.0.1
     dependencies:
-      '@babel/parser': registry.npmmirror.com/@babel/parser/7.16.8
+      '@babel/parser': registry.npmmirror.com/@babel/parser/7.16.12
       '@babel/types': registry.npmmirror.com/@babel/types/7.16.8
     dev: true
 
@@ -1116,7 +1116,7 @@ packages:
     version: 7.0.2
     engines: {node: '>= 10.0.0'}
     dependencies:
-      '@babel/parser': registry.npmmirror.com/@babel/parser/7.16.8
+      '@babel/parser': registry.npmmirror.com/@babel/parser/7.16.12
       '@babel/types': registry.npmmirror.com/@babel/types/7.16.8
       assert-never: registry.nlark.com/assert-never/1.2.1
       babel-walk: registry.nlark.com/babel-walk/3.0.0-canary-5
@@ -1156,10 +1156,10 @@ packages:
     engines: {node: '>=6.9.0'}
     dev: true
 
-  registry.npmmirror.com/@babel/parser/7.16.8:
-    resolution: {integrity: sha512-i7jDUfrVBWc+7OKcBzEe5n7fbv3i2fWtxKzzCvOjnzSxMfWMigAhtfJ7qzZNGFNMsCCd67+uz553dYKWXPvCKw==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@babel/parser/download/@babel/parser-7.16.8.tgz}
+  registry.npmmirror.com/@babel/parser/7.16.12:
+    resolution: {integrity: sha512-VfaV15po8RiZssrkPweyvbGVSe4x2y+aciFCgn0n0/SJMR22cwofRV1mtnJQYcSB1wUTaA/X1LnA3es66MCO5A==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@babel/parser/download/@babel/parser-7.16.12.tgz}
     name: '@babel/parser'
-    version: 7.16.8
+    version: 7.16.12
     engines: {node: '>=6.0.0'}
     hasBin: true
 
@@ -1578,7 +1578,7 @@ packages:
     name: '@vue/compiler-core'
     version: 3.2.27
     dependencies:
-      '@babel/parser': registry.npmmirror.com/@babel/parser/7.16.8
+      '@babel/parser': registry.npmmirror.com/@babel/parser/7.16.12
       '@vue/shared': registry.npmmirror.com/@vue/shared/3.2.27
       estree-walker: registry.npmmirror.com/estree-walker/2.0.2
       source-map: registry.nlark.com/source-map/0.6.1
@@ -1596,7 +1596,7 @@ packages:
     name: '@vue/compiler-sfc'
     version: 3.2.27
     dependencies:
-      '@babel/parser': registry.npmmirror.com/@babel/parser/7.16.8
+      '@babel/parser': registry.npmmirror.com/@babel/parser/7.16.12
       '@vue/compiler-core': registry.npmmirror.com/@vue/compiler-core/3.2.27
       '@vue/compiler-dom': registry.npmmirror.com/@vue/compiler-dom/3.2.27
       '@vue/compiler-ssr': registry.npmmirror.com/@vue/compiler-ssr/3.2.27
@@ -1628,7 +1628,7 @@ packages:
     name: '@vue/reactivity-transform'
     version: 3.2.27
     dependencies:
-      '@babel/parser': registry.npmmirror.com/@babel/parser/7.16.8
+      '@babel/parser': registry.npmmirror.com/@babel/parser/7.16.12
       '@vue/compiler-core': registry.npmmirror.com/@vue/compiler-core/3.2.27
       '@vue/shared': registry.npmmirror.com/@vue/shared/3.2.27
       estree-walker: registry.npmmirror.com/estree-walker/2.0.2
