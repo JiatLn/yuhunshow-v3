@@ -1,14 +1,25 @@
 import type { IHeroEquip, SuitId } from '@/store/modules/types';
+import { suitOpts } from '@/assets/data/yuhunInfo';
 import useHeroEquipStore from '@/store/modules/useHeroEquipStore';
 import { EAttrType } from '@/utils/types';
-import { ref } from 'vue';
+import { ref, watch, computed } from 'vue';
+
+export interface ISuitData {
+  suitId: number;
+  suitName: string;
+  val: number;
+  list: IHeroEquip[];
+}
 
 export const useAnalysis = () => {
-  const { heroEquips } = useHeroEquipStore();
+  const { includeEquips } = useHeroEquipStore();
 
-  const equipByPos = ref<IHeroEquip[][]>([[], [], [], [], [], []]);
-  heroEquips.forEach((item) => {
-    equipByPos.value[item.pos].push(item);
+  const equipByPos = computed(() => {
+    const result = [[], [], [], [], [], []] as IHeroEquip[][];
+    includeEquips().forEach((item) => {
+      result[item.pos].push(item);
+    });
+    return result;
   });
 
   const getMaxSpeed = (suitId?: SuitId) => {
@@ -79,9 +90,26 @@ export const useAnalysis = () => {
     return { val: currMax, list: resultList };
   };
 
+  const allMaxSpeed = ref<ISuitData[]>([]);
+  const refresh = () => {
+    allMaxSpeed.value = suitOpts
+      .map((item) => ({
+        suitName: item.label,
+        suitId: item.value,
+        ...getSuitMaxSpeed(item.value),
+      }))
+      .sort((a, b) => b.val - a.val)
+      .filter((item) => item.val > 120 && item.list.length === 6);
+  };
+
+  watch(() => equipByPos, refresh, { deep: true });
+
+  refresh();
+
   return {
     equipByPos,
     getSuitMaxSpeed,
+    allMaxSpeed,
   };
 };
 

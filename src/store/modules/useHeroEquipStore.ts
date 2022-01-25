@@ -7,6 +7,7 @@ const useHeroEquipStore = defineStore({
   state: () => {
     return {
       heroEquips: [] as IHeroEquip[],
+      excludeEquips: [] as string[],
     };
   },
   actions: {
@@ -21,6 +22,29 @@ const useHeroEquipStore = defineStore({
     clearEquipData() {
       this.heroEquips = [];
       localStorage.removeItem(this.$id);
+    },
+    includeEquips() {
+      return this.heroEquips.filter((item) => !this.excludeEquips.includes(item.id));
+    },
+    addExcludeEquip(ids: string[]) {
+      ids.forEach((id) => {
+        if (!this.excludeEquips.includes(id)) {
+          this.excludeEquips.push(id);
+        }
+      });
+    },
+    removeExcludeEquip(ids: string[]) {
+      if (ids.length === 0) {
+        this.excludeEquips = [];
+        console.log(this.excludeEquips);
+        return;
+      }
+      ids.forEach((id) => {
+        if (this.excludeEquips.includes(id)) {
+          let idx = this.excludeEquips.findIndex((item) => item === id);
+          this.excludeEquips.splice(idx, 1);
+        }
+      });
     },
   },
 });
